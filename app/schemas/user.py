@@ -22,6 +22,7 @@ def buscarUsuarios(email:str):
             "username":Usuario["username"],
             "fullname":Usuario["fullname"],
             "document":Usuario["document"],
+            "password":Usuario["password"],
             "cel":Usuario["cel"],
             "email":Usuario["email"]
         }
