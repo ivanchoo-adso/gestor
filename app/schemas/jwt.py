@@ -5,13 +5,13 @@ import os
 
 
 SECRET = os.getenv("SECRET")
-ALGORITH = os.getenv("ALGORITH")
+ALGORITHM = os.getenv("ALGORITH")
 
 
 async def tokenn(user: str, tiempo:int):
     vence= datetime.utcnow() + timedelta (hours=tiempo)
     crear={"sub": user, "exp": vence}
-    token = jwt.encode(crear,SECRET,algorithm=ALGORITH)
+    token = jwt.encode(crear,SECRET,algorithm=ALGORITHM)
     return{"token": token, "tipo":"bearer"}
 
 

@@ -1,16 +1,19 @@
 from app.db.client import users
+from typing import Optional
 
-def userdatos():
-    resultado=[]
-    for newUsuario in users.find():
-        resultado.append({
-             "username":newUsuario["username"],
-             "fullname":newUsuario["fullname"],
-             "document":newUsuario["document"],
-             "cel":newUsuario["cel"],
-             "password":newUsuario["password"],
-             "email":newUsuario["email"]
-        })
+
+def userdatos(username: Optional[str] = None):
+    resultado = []
+    if username:
+        for newUsuario in users.find():
+            resultado.append({
+                "username": newUsuario["username"],
+                "fullname": newUsuario["fullname"],
+                "document": newUsuario["document"],
+                "cel": newUsuario["cel"],
+                "hashed_password": newUsuario["hashed_password"],
+                "email": newUsuario["email"]
+            })
     return resultado
 
 
@@ -22,7 +25,7 @@ def buscarUsuarios(email:str):
             "username":Usuario["username"],
             "fullname":Usuario["fullname"],
             "document":Usuario["document"],
-            "password":Usuario["password"],
+            "hashed_password":Usuario["hashed_password"],
             "cel":Usuario["cel"],
             "email":Usuario["email"]
         }

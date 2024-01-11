@@ -6,10 +6,15 @@ class User(BaseModel):
     fullname:str
     document: int
     cel: int
-    password :str
+    hashed_password: str
     email: str
 
 
 class buscarUsuario(BaseModel):
     email: str
-    password :str
+    hashed_password :str
+
+
+
+class UserDB(User):
+    hashed_password: str
